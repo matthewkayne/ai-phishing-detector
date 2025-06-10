@@ -33,13 +33,12 @@ Email Content:
 """
 
 try:
-    model = genai.GenerativeModel('gemini-1.5-flash') 
+    model = genai.GenerativeModel('gemini-1.5-flash')
     print("Sending request to Gemini API...")
     response = model.generate_content(prompt)
-
  
     print("\n--- Phishing Assessment ---")
-    print(response.text) 
+    print(response.text)
     print("---------------------------\n")
 
 except Exception as e:

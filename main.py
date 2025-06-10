@@ -20,12 +20,9 @@ try:
 except FileNotFoundError:
     print(f"Error: The file '{EMAIL}' was not found. Please create it with email content.")
     sys.exit(1)
-except Exception as e:
-    print(f"An error occurred while reading the file: {e}")
-    sys.exit(1)
 
 
-prompt = f"""
+PROMPT = f"""
 Analyze the following email content for phishing indicators. Provide a percentage confidence score (e.g., "95%") on whether it is a phishing attempt. Also, briefly explain your reasoning, highlighting specific elements or patterns in the EMAIL that contribute to your assessment.
 
 Email Content:
@@ -34,15 +31,10 @@ Email Content:
 ---
 """
 
-try:
-    model = genai.GenerativeModel('gemini-1.5-flash')
-    print("Sending request to Gemini API...")
-    response = model.generate_content(prompt)
+model = genai.GenerativeModel('gemini-1.5-flash')
+print("Sending request to Gemini API...")
+response = model.generate_content(PROMPT)
 
-    print("\n--- Phishing Assessment ---")
-    print(response.text)
-    print("---------------------------\n")
-
-except Exception as e:
-    print(f"An error occurred while calling the Gemini API: {e}")
-    print("Please ensure your API key is correct and you have network connectivity.")
+print("\n--- Phishing Assessment ---")
+print(response.text)
+print("---------------------------\n")

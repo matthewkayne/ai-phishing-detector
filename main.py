@@ -39,7 +39,7 @@ print("\n--- Phishing Assessment ---")
 print(response.text)
 print("---------------------------\n")
 
-"""User Input Confirmation"""
+# --- User Input Confirmation Function ---
 def get_confirmation(prompt_message):
 
     while True:

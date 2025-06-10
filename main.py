@@ -52,7 +52,7 @@ def get_confirmation(prompt_message):
             return True
         if user_input in ["n", "no", "N", "No"]:
             return False
-        
+
         print("Invalid input. Please enter 'y' for yes or 'n' for no.")
 
 if get_confirmation("Would you like to download this report?" ) is True:

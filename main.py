@@ -38,3 +38,34 @@ response = model.generate_content(PROMPT)
 print("\n--- Phishing Assessment ---")
 print(response.text)
 print("---------------------------\n")
+
+def get_confirmation(prompt_message):
+
+    while True:
+        user_input = input(prompt_message + " (y/n): ").strip().lower()
+
+        if user_input in ["y", "yes", "Y", "Yes"]:
+            return True
+        elif user_input in ["n", "no", "N", "No"]:
+            return False
+        else:
+            print("Invalid input. Please enter 'y' for yes or 'n' for no.")
+
+
+
+if get_confirmation("Would you like to download this report?" ) is True:
+    print()
+    report_file="report.txt"
+    try:
+        with open(report_file, 'w', encoding='utf-8') as file:
+            file.write(response.text)
+            print("---------------------------\n")
+            print(f"Successfully created/overwrote '{report_file}' with new content.\n")
+    except IOError as e:
+        print(f"Error writing to file '{report_file}': {e}")
+       
+else:
+    print()
+
+print("---------------------------\n")
+print("Thank you for using AI Phishing Detector")

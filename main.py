@@ -39,9 +39,12 @@ print("\n--- Phishing Assessment ---")
 print(response.text)
 print("---------------------------\n")
 
-# --- User Input Confirmation Function ---
 def get_confirmation(prompt_message):
-
+    """
+    Asks the user for a 'yes' or 'no' confirmation.
+    Keeps retrying until a valid input is received.
+    """
+    
     while True:
         user_input = input(prompt_message + " (y/n): ").strip().lower()
 

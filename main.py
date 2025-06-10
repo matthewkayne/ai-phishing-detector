@@ -39,6 +39,7 @@ print("\n--- Phishing Assessment ---")
 print(response.text)
 print("---------------------------\n")
 
+"""User Input Confirmation"""
 def get_confirmation(prompt_message):
 
     while True:
@@ -46,24 +47,23 @@ def get_confirmation(prompt_message):
 
         if user_input in ["y", "yes", "Y", "Yes"]:
             return True
-        elif user_input in ["n", "no", "N", "No"]:
+        if user_input in ["n", "no", "N", "No"]:
             return False
         else:
             print("Invalid input. Please enter 'y' for yes or 'n' for no.")
 
 
-
 if get_confirmation("Would you like to download this report?" ) is True:
     print()
-    report_file="report.txt"
+    REPORT_FILE="report.txt"
     try:
-        with open(report_file, 'w', encoding='utf-8') as file:
+        with open(REPORT_FILE, 'w', encoding='utf-8') as file:
             file.write(response.text)
             print("---------------------------\n")
-            print(f"Successfully created/overwrote '{report_file}' with new content.\n")
+            print(f"Successfully created/overwrote '{REPORT_FILE}' with new content.\n")
     except IOError as e:
-        print(f"Error writing to file '{report_file}': {e}")
-       
+        print(f"Error writing to file '{REPORT_FILE}': {e}")
+
 else:
     print()
 

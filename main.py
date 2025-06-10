@@ -1,4 +1,4 @@
-import os
+import os, sys
 import google.generativeai as genai
 from dotenv import load_dotenv
 
@@ -17,10 +17,10 @@ try:
         print(f"Warning: The file '{email}' is empty or contains only whitespace.")
 except FileNotFoundError:
     print(f"Error: The file '{email}' was not found. Please create it with email content.")
-    exit()
+    sys.exit()
 except Exception as e:
     print(f"An error occurred while reading the file: {e}")
-    exit()
+    sys.exit()
 
 
 prompt = f"""

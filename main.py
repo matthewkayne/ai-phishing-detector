@@ -50,11 +50,10 @@ def get_confirmation(prompt_message):
 
         if user_input in ["y", "yes", "Y", "Yes"]:
             return True
-        elif user_input in ["n", "no", "N", "No"]:
+        if user_input in ["n", "no", "N", "No"]:
             return False
-        else:
-            print("Invalid input. Please enter 'y' for yes or 'n' for no.")
-
+        
+        print("Invalid input. Please enter 'y' for yes or 'n' for no.")
 
 if get_confirmation("Would you like to download this report?" ) is True:
     print()

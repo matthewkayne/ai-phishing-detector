@@ -1,6 +1,6 @@
 import os
-from dotenv import load_dotenv
 import google.generativeai as genai
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -9,6 +9,7 @@ genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
 email = "email.txt"
 
 email_content = ""
+
 try:
     with open(email, "r", encoding="utf-8") as file:
         email_content = file.read()

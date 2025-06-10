@@ -44,13 +44,13 @@ def get_confirmation(prompt_message):
     Asks the user for a 'yes' or 'no' confirmation.
     Keeps retrying until a valid input is received.
     """
-    
+
     while True:
         user_input = input(prompt_message + " (y/n): ").strip().lower()
 
         if user_input in ["y", "yes", "Y", "Yes"]:
             return True
-        if user_input in ["n", "no", "N", "No"]:
+        elif user_input in ["n", "no", "N", "No"]:
             return False
         else:
             print("Invalid input. Please enter 'y' for yes or 'n' for no.")

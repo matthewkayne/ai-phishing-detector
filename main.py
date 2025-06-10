@@ -17,10 +17,10 @@ try:
         print(f"Warning: The file '{email}' is empty or contains only whitespace.")
 except FileNotFoundError:
     print(f"Error: The file '{email}' was not found. Please create it with email content.")
-    sys.exit()
+    sys.exit(1)
 except Exception as e:
     print(f"An error occurred while reading the file: {e}")
-    sys.exit()
+    sys.exit(1)
 
 
 prompt = f"""

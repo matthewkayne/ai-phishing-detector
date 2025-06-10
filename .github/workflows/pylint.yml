@@ -19,7 +19,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pylint
         pip install -r requirements.txt
-        pip show google-generativea
+        pip show google-generativeai
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
